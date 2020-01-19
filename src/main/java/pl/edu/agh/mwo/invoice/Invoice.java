@@ -18,14 +18,14 @@ public class Invoice {
 
 	public BigDecimal getNetPrice() {
 
-		return netPrice;
+		return BigDecimal.ZERO;
 	}
 
 	public BigDecimal getTax() {
-		return null;
+		return BigDecimal.ZERO;
 	}
 
 	public BigDecimal getTotal() {
-		return null;
+		return BigDecimal.ZERO;
 	}
 }
