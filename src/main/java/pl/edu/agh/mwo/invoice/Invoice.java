@@ -18,20 +18,31 @@ public class Invoice {
 	}
 
 	public BigDecimal getNetPrice() {
-		BigDecimal netPrice = 0 ;
-		for (Product product : products.keySet())
+		BigDecimal netPrice = BigDecimal.ZERO;
+		
+		for (Product product : this.products.keySet())
 		{
-			netPrice = netPrice.add(product.getPrice()); 
+			Integer quantity = this.products.get(product);
+			netPrice = netPrice.add(product.getPrice().multiply(new BigDecimal(quantity))); 
 		}
 
-		return BigDecimal.ZERO;
+		return netPrice;
 	}
 
 	public BigDecimal getTax() {
-		return BigDecimal.ZERO;
+		return getTotal().subtract(getNetPrice());
 	}
 
 	public BigDecimal getTotal() {
-		return BigDecimal.ZERO;
+BigDecimal netPrice = BigDecimal.ZERO;
+		
+		for (Product product : this.products.keySet())
+		{
+			Integer quantity = this.products.get(product);
+			netPrice = netPrice.add(product.getPriceWithTax().multiply(new BigDecimal(quantity))); 
+		}
+
+		return netPrice;
+	}
 	}
 }
