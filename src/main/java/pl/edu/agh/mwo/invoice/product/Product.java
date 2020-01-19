@@ -24,6 +24,7 @@ public abstract class Product {
 		
 		}
 		if ((price.compareTo(BigDecimal.ZERO) < 0))
+			
 		{
 			throw new IllegalArgumentException("Product price cannot be negative");
 		
